@@ -17,9 +17,7 @@
 
 
     --first-color: hsla(195, 100%, 30%, 0.2);
-    --gradient-color: linear-gradient(90deg,
-            hsl (210, 558, 20%),
-            hsl (192, 62%, 25%));
+    --gradient-color: linear-gradient(90deg,hsl (210, 558, 20%),hsl (192, 62%, 25%));
     --title-color: hsl(210, 52%, 20%);
     --text-color: hsl(210, 24%, 15%);
     --white-color: #fff;
@@ -125,15 +123,16 @@ header {
     .nav__menu {
         position: fixed;
         top: -100%;
-        left :0;
+        left: 0;
         background-color: var(--body-color);
         box-shadow: 0 1px 16px hsla(210, 55%, 24%, .1);
         width: 100%;
+        display: flex;
         flex-direction: column;
         padding-block: 3.5rem 2rem;
-        display: flex;
         row-gap: 2.5rem;
         transition: top .4s;
+        /* background-color: aqua; */
     }
     
 }
@@ -196,49 +195,51 @@ header {
 }
 
 .home__data{
-    /* display */
+    display: grid;
     row-gap: .5rem;
 }
 
 .home__subtitle {
-    /* font-size */
-    /* color */
-    /* letter-spacing */
+    font-size: var(--small-font-size);
+    color: var(var(--first-color));
+    letter-spacing: 3px;
 }
 
 .home__title {
-    /* font-size */
-    /* font-family */
-    /* color */
+    font-size: var(--biggest-font-size);
+    font-family: var(var(--second-font));
+    color: var(--title-color);
 }
 
 .home-description {
-    /* margin  */
+    margin-bottom: 2.5rem;
 }
 
 .home__button{
-    /* display: inline */
-    /* background */
-    /* width */
-/* padding */
-/* border-radius */
-/* box-shadow  hsla*/
+    display: inline-block;
+    background: var(--gradient-color);
+    width:max-content;
+    padding: 1rem 2rem; 
+    border-radius: 0.75rem;
+    box-shadow:  0 24px 32px hsla(210, 54%, 24%, .3);
 }
 
 .home__bird-1, 
 .home__bird-2 {
-    /* none  */
+  position: absolute;
+  width: 60px;
 
 }
 
 .home__bird-1 {
-    /* bottom */
-    /* rotate */
+    bottom: -6rem;
+    rotate:-30deg;
 }
 
 .home__bird-2 {
-    /*top  */
-    /* rotate */
+    top:4.5rem;
+    right:0;
+    rotate:-15deg;
 }
 
 .home__images {
@@ -246,9 +247,145 @@ header {
 }
 
 .home__images img {
-    /* position */
-    /* max-width: ; */
-    /* left */
-    /* bottom */
-    /* width */
+    position: absolute;
+    max-width: initial;
+    left:-7rem;
+    bottom:0;
+    /* width:600px; */
+}
+
+/* Small device */
+@media screen and (max-width:305px){
+    .container{
+        margin-inline: 1rem;
+    }
+    
+    .home__title{
+        font-size: 2rem;
+    }
+}
+
+/* Taller devices */
+@media screen and(min-width:376px) and(min-height:800px){
+    .home__container{
+        padding-top:10rem;
+    }
+    .home__images img {
+        width: 700px;
+        left: -12;
+    }
+}
+
+/*Medium devices */
+@media screen and(min-width:480px){
+    .home__content{
+        max-width:305px;
+    }
+    .home__bird-2 {
+       right:-3rem;
+    }
+
+    .home__images img{
+        width: initial;
+        left:0;
+    }
+}
+
+/*For large devices */
+@media screen and (min-width: 1023px){
+    .nav{
+        height: calc(var(--header-height)+ 2rem);
+    }
+    .nav__toggle,
+    .nav__close{
+        display: none;
+    }
+
+    .nav__menu{
+        width:100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .nav__list{
+        flex-direction: row;
+        column-gap: 5rem;
+    }
+    .nav__buttons{
+        flex-direction: row;
+        column-gap: 5rem;
+
+    }
+    .nav__logo{
+        width: 48px;
+    }
+
+    .home__content{
+        max-width: 550px;
+    }
+
+    .home__data{
+        row-gap: 1rem;
+    }
+
+    .home__subtitle{
+        font-size: var(--normal-font-size);
+    }
+
+    .home__description{
+        margin-bottom: 3;
+    }
+
+    @media screen and (min-width:1120px) {
+        .container{
+            margin-inline: auto;
+        }
+        
+    }
+
+    @media screen and (min-width:1300px) {
+        .home__container{
+           height: 950px;
+           padding-top: 10rem;
+        }
+        
+        .home__bird-1, 
+        .home__bird-2{
+                width: 80px;
+        }
+
+        .home__bird-1{
+            bottom: -7rem;
+            left: -7rem;
+        }
+
+        .home__bird-2{
+            top: 0rem;
+            right: -6rem;
+        }
+
+    }
+
+    .home__images img {
+        bottom:-3rem;
+    }
+
+    ::-webkit-scrollbar{
+        width:.6rem;
+        border-radius: .5rem;
+        background-color: hsl(209, 25%, 84%);
+    }
+    ::-webkit-scrollbar-thumb{
+        border-radius: .5rem;
+        background-color: hsl(209, 25%, 25%);
+    }
+}
+
+/* 2K Resolution */
+/* TODO On your own */
+
+
+.scroll-header{
+    box-shadow: 0 1px 16px hsla(210, 55%, 24%, .1);
 }
